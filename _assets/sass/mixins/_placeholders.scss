@@ -1,0 +1,22 @@
+
+
+%button_round_shadow_base {
+  @include button_round_shadow;
+}
+%loader_gif {
+  background-image: url('../images/loader.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+%button_round_shadow {
+  @extend %button_round_shadow_base;
+  background-color: $color_green;
+  color: #FFF;
+  @include ak_box_shadow(0px 0px 2px 2px #CCC);
+
+}
+%button_round_shadow_gray {
+  @extend %button_round_shadow_base;
+  background: $color_light_gray;
+
+}

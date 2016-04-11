@@ -1,0 +1,105 @@
+header.site_header {
+  height: $navbtn_height;
+  position: fixed;
+  width: 100%;
+  background-color: #F4F4F4;
+  z-index: 1000; // always on top !!!
+
+  ul,
+  li {
+    display: block;
+    float: left;
+    clear: left;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  a.site-title {
+
+    display: inline-block;
+    text-align: center;
+    vertical-align: bottom;
+
+    float: left;
+    clear: none;
+
+    width: $main_logo_width;
+    height: $navbtn_height;
+
+  }
+}
+
+span.stripe { // this is for the menu to hide behind.
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navbtn_height;
+  background-color: #F4F4F4;
+  z-index: 1000;
+}
+
+.page {
+  padding-top: $navbtn_height;
+}
+div.outside {
+  position: relative;
+}
+// mobile menu OFF:
+nav.site-nav {
+
+  position: absolute;
+  left: 0;
+  top: $navbtn_height;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1500;
+  background: #FFF;
+  border-bottom: 1px #000 solid;
+
+  @include transition(height 0.4s ease-in-out);
+
+  ul {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    li,
+    li a {
+      display: block;
+      float: left;
+      clear: left;
+      width: 100%;
+    }
+    li a {
+      padding: $main_gutter;
+    }
+  }
+}
+
+// mobile menu ON:
+html.main_nav_on nav.site-nav {
+  @include transition(height 0.25s ease-in-out);
+}
+
+span.mobile_shader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1; // one below span.shade
+  width: 100%;
+  background-color: transparent;
+  @include transition(background-color 0.4s ease-in-out);
+
+  html.main_nav_on & {
+    background-color: rgba(0, 0, 0, 0.6);
+    @include transition(background-color 0.4s ease-in-out);
+  }
+}
+
+// classes callout
+a.sign_up_now {
+  display: none;
+}

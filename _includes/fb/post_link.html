@@ -1,0 +1,8 @@
+<%
+if ( message ){ print('<span class="message">' + message + '</span>') };
+if ( link ){
+  print('<a href="' + link + '" class="link"><span class="link">' + name + '</span>');
+  if ( caption ){ print('<span class="caption">' + caption + '</span>') }
+  print('</a>');
+}
+%>

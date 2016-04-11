@@ -1,0 +1,263 @@
+/*
+ *  Collection of common Mixins
+ *
+ */
+
+@mixin clearfix {
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    *zoom: 1;
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+@mixin hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
+@mixin visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+@function pem($px, $base: 16) {
+    @return ($px / $base) + em;
+}
+
+@mixin font-faceAK($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    @if $asset-pipeline == true {
+      src: font-url('#{$file-path}.eot');
+      src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
+           font-url('#{$file-path}.woff')                format('woff'),
+           font-url('#{$file-path}.ttf')                 format('truetype'),
+           font-url('#{$file-path}.svg##{$font-family}') format('svg');
+    } @else {
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+           url('#{$file-path}.woff')                     format('woff'),
+           url('#{$file-path}.ttf')                      format('truetype'),
+           url('#{$file-path}.svg##{$font-family}')      format('svg');
+    }
+  }
+}
+
+
+@mixin rounded($radius: 5px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin each_corner( $topleft, $topright, $bottomright, $bottomleft ) {
+
+	@if $topleft > 0 { -webkit-border-top-left-radius: $topleft; }
+	@if $topright > 0 { -webkit-border-top-right-radius: $topright; }
+	@if $bottomright > 0 { -webkit-border-bottom-right-radius: $bottomright; }
+	@if $bottomleft > 0 { -webkit-border-bottom-left-radius: $bottomleft; }
+
+	@if $topleft > 0 { -moz-border-radius-topleft: $topleft; }
+	@if $topright > 0 { -moz-border-radius-topright: $topright; }
+	@if $bottomright > 0 { -moz-border-radius-bottomright: $bottomright; }
+	@if $bottomleft > 0 { -moz-border-radius-bottomleft: $bottomleft; }
+
+	@if $topleft > 0 { border-top-left-radius: $topleft; }
+	@if $topright > 0 { border-top-right-radius: $topright; }
+	@if $bottomright > 0 { border-bottom-right-radius: $bottomright; }
+	@if $bottomleft > 0 { border-bottom-left-radius: $bottomleft; }
+
+}
+
+
+@mixin shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+     -moz-box-shadow: $x $y $blur $color;
+          box-shadow: $x $y $blur $color;
+}
+@mixin ak-box-shadow($horizontal, $vertical, $blur, $spread, $color, $inset: '') {
+
+	-moz-box-shadow:    $inset $horizontal $vertical $blur $spread $color;
+	-webkit-box-shadow: $inset $horizontal $vertical $blur $spread $color;
+	box-shadow:         $inset $horizontal $vertical $blur $spread $color;
+
+}
+
+@mixin ak-transition-property($property) {
+  -webkit-transition: -webkit- + $property;
+  -moz-transition: -moz- + $property;
+  -o-transition: -o- + $property;
+  transition: $property;
+}
+
+@mixin ak-transition-property2($property_a, $property_b) {
+    -webkit-transition: $property_a, -webkit- + $property_b;
+    -moz-transition: $property_a, -moz- + $property_b;
+    -o-transition: $property_a, -o- + $property_b;
+    transition: $property_a, $property_b;
+}
+
+
+@mixin shadow-inset($x, $y, $blur, $spread, $color) {
+  -webkit-box-shadow: inset $x $y $blur $spread $color;
+     -moz-box-shadow: inset $x $y $blur $spread $color;
+          box-shadow: inset $x $y $blur $spread $color;
+}
+@mixin transition2($property, $time: .2s, $ease: ease) {
+	$test: $property;
+	@if($property == transform){
+	  -webkit-transition: -webkit-+$property $time $ease;
+	     -moz-transition: -moz-+$property $time $ease;
+	       -o-transition: -o-+$property $time $ease;
+	          transition: $property $time $ease;
+	} @else {
+
+	  -webkit-transition: $property $time $ease;
+	     -moz-transition: $property $time $ease;
+	      -ms-transition: $property $time $ease;
+	       -o-transition: $property $time $ease;
+	          transition: $property $time $ease;
+
+	}
+}
+
+@mixin backface-visibility2($val) {
+	-webkit-backface-visibility: $val;
+	   -moz-backface-visibility: $val;
+		-ms-backface-visibility: $val;
+		 -o-backface-visibility: $val;
+		    backface-visibility: $val;
+}
+@mixin transform2($x, $y, $z) {
+	-webkit-transform: translate3d($x, $y, $z);
+	   -moz-transform: translate3d($x, $y, $z);
+	    -ms-transform: translate3d($x, $y, $z);
+	     -o-transform: translate3d($x, $y, $z);
+	        transform: translate3d($x, $y, $z);
+}
+@mixin transform-scale($x, $y, $z, $scale-x: 1, $scale-y: 1, $scale-z: 1) {
+	-webkit-transform: translate3d($x, $y, $z) scale3d($scale-x, $scale-y, $scale-z);
+	   -moz-transform: translate3d($x, $y, $z) scale3d($scale-x, $scale-y, $scale-z);
+	    -ms-transform: translate3d($x, $y, $z) scale3d($scale-x, $scale-y, $scale-z);
+	     -o-transform: translate3d($x, $y, $z) scale3d($scale-x, $scale-y, $scale-z);
+	        transform: translate3d($x, $y, $z) scale3d($scale-x, $scale-y, $scale-z);
+}
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+@mixin opacity($opacity) {
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+  opacity: $opacity;
+}
+
+@mixin ak_box_shadow($value: '0px 0px 2px 2px #000'){
+  -moz-box-shadow:    $value;
+  -webkit-box-shadow: $value;
+  box-shadow:         $value;
+}
+
+@mixin triangle ($size, $color, $direction) {
+	height: 0;
+	width: 0;
+	content: '';
+
+	@if ($direction == up) or ($direction == down) or ($direction == right) or ($direction == left) {
+	  border-color: transparent;
+	  border-style: solid;
+	  border-width: $size / 2;
+
+	  @if $direction == up {
+	    border-bottom-color: $color;
+
+	  } @else if $direction == right {
+	    border-left-color:   $color;
+
+	  } @else if $direction == down {
+	    border-top-color:    $color;
+
+	  } @else if $direction == left {
+	    border-right-color:  $color;
+	  }
+	}
+
+	@else if ($direction == up-right) or ($direction == up-left) {
+	  border-top: $size solid $color;
+
+	  @if $direction == up-right {
+	    border-left:  $size solid transparent;
+
+	  } @else if $direction == up-left {
+	    border-right: $size solid transparent;
+	  }
+	}
+
+	@else if ($direction == down-right) or ($direction == down-left) {
+	  border-bottom: $size solid $color;
+
+	  @if $direction == down-right {
+	    border-left:  $size solid transparent;
+
+	  } @else if $direction == down-left {
+	    border-right: $size solid transparent;
+	  }
+	}
+}
+@mixin pop_over_box() {
+
+  background: #FFF;
+
+  @include rounded($round_corners);
+  @include ak_box_shadow(0px 0px 3px 3px rgba(0, 0, 0, 0.2));
+
+}
+@mixin close_button() { /* round gray button with an X in the center and a shadow */
+
+  height: 1.75em;
+  width: 1.75em;
+  color: #FFF;
+  background-color: #CCC;
+  background-image: url('../images/x.svg');
+  .no-svg & { background-image: url('../images/x.png'); }
+  background-repeat: no-repeat;
+  background-position: center;
+
+  &:hover {
+    background-color: #333;
+  }
+
+  border: 2px #FFF solid;
+
+  @include rounded(2em);
+  @include transition;
+  @include ak_box_shadow(0px 0px 2px 2px #CCC);
+
+}
+
+@mixin button_round_shadow() {
+  padding: 0.5em 1em;
+  text-align: center;
+
+  border: 2px #FFF solid;
+
+  @include rounded(0.5em);
+  @include transition;
+}

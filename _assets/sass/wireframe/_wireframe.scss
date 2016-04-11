@@ -1,0 +1,25 @@
+.wireframe_image,
+.wireframe_video {
+  display: block;
+  float: left;
+  clear: left;
+  background-color: #CCC;
+  border: 1px #333 solid;
+  padding: pem(120) $gutter;
+  width: 100%;
+  text-align: center;
+  // color: red;
+
+}
+
+.wireframe_video {
+  padding: pem(80) $gutter;
+}
+
+header.site_header {
+  a.site-title {
+    line-height: $navbtn_height;
+    background-color: #CCC;
+    border: 1px #333 solid;
+  }
+}

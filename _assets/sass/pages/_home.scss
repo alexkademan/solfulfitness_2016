@@ -1,0 +1,19 @@
+div.home {
+  .main_col,
+  .fb_feed {
+    display: block;
+    @include span-columns(12 of 12);
+  }
+  .main_col {
+    padding: 0 $main_gutter;
+  }
+}
+
+@import "facebook";
+
+@include media($medium) {
+  @import "home_medium_width";
+}
+@include media($large) {
+  @import "home_large_width";
+}

@@ -1,0 +1,5 @@
+.DS_Store
+_site
+_assets/node_modules
+fb_feed/config.php
+.jekyll-metadata

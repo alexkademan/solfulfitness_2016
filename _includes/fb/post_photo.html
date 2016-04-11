@@ -1,0 +1,5 @@
+<% if ( message ){ print('<span class="message">' + message + '</span>') } %>
+<% if ( wireframe ){ %><div class="wireframe_image">image</div><% } else { %>
+  <img src="<%- photo.source %>" style="max-width:<%- photo.width %>px">
+<% } %>
+<% if ( description ){ print('<span class="message">' + description + '</span>') } %>

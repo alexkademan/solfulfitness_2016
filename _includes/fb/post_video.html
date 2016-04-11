@@ -1,0 +1,9 @@
+<% if ( message ){ print('<span class="message">' + message + '</span>') } %>
+<% if ( wireframe ){ %><div class="wireframe_video">video</div><% } else { %>
+<span class="frame" style="max-width: <%- video.format.width + 'px;' %> max-height:<%- video.format.height + 'px' %>">
+  <img src="<%- video.format.picture %>" style="max-width:<%- video.format.width %>px">
+  <iframe src="<%- video.iframe_src %>"></iframe>
+</span>
+<% } %>
+<% if(link) { print('<a href="' + link + '" class="title">' + name + '</a>' )} %>
+<% if ( description ){ print('<span class="message">' + description + '</span>') } %>

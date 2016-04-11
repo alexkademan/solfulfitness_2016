@@ -1,0 +1,26 @@
+
+$max-width: pem(1240);
+$small_size: pem(720);
+$large_size: pem(1140);
+
+$palm_size: new-breakpoint(max-width $small_size 12);
+$medium: new-breakpoint(min-width $small_size 12);
+$large: new-breakpoint(min-width $large_size 12);
+$col_reading_width: pem(580);
+
+$hr: 1px #CCC dotted;
+$hr_darker: 1px #000 solid;
+$hr_med: 1px #CCC solid;
+
+$main_gutter: ($gutter * 0.75);
+$h1_padding: ($gutter / 4) $main_gutter $main_gutter;
+
+$round_corners: 0.4em;
+$border_content: pem(4) #F4F4F4 solid;
+
+
+// NAV vars:
+$nav-off-canvas-width: 87%;
+$navbtn_height: pem( 60 );
+
+$main_logo_width: pem(115);

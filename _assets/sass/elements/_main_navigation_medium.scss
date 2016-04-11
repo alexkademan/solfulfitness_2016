@@ -1,0 +1,78 @@
+header.site_header {
+  background-color: #CCC;
+  span.toggle_menu {
+    @include hidden;
+  }
+
+  div.outside {
+    overflow: hidden;
+    @include outer-container;
+  }
+}
+span.stripe { // this is for the menu to hide behind.
+  position: relative;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+
+}
+nav.site-nav {
+  // overriding all of the palm sized styles:
+  position: absolute;
+  display: block;
+  float: left;
+  left: $main_logo_width;
+  top: 0;
+  background: transparent;
+  border-bottom: none;
+
+  ul {
+    position: relative;
+    left: auto;
+    top: auto;
+
+    display: block;
+    float: left;
+    clear: none;
+
+    background: transparent;
+
+    li,
+    li a {
+      display: block;
+      float: left;
+      clear: none;
+      height: $navbtn_height;
+      line-height: $navbtn_height;
+      background: rgba(255,255,255, 0.2);
+      width: auto;
+
+
+      .no-touchevents &:hover {
+        background: transparent;
+      }
+    }
+    li a {
+      padding: 0 $main_gutter;
+    }
+  }
+}
+a.sign_up_now {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+  background: #7c7c7c;
+  color: #FFF;
+  overflow: hidden;
+
+  // @include transition(5s);
+  @include transition(height 0.5s ease-in-out);
+
+  .classes {
+    display: block;
+    width: 100%;
+    padding: $gutter;
+    text-align: center;
+  }
+}

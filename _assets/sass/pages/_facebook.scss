@@ -1,0 +1,127 @@
+ul.fb_feed {
+  padding: 0 ($gutter / 2);
+
+  li {
+    list-style: none;
+    padding: 0 0 ($gutter / 2);
+    margin: 0 0 ($gutter * 1);
+    border-bottom: 1px #CCC solid;
+
+    &:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+  }
+
+  li.loading {
+    padding: $gutter;
+    text-align: center;
+    border: none;
+  }
+
+  header {
+    padding-bottom: 0.5em;
+
+    span.avatar,
+    hgroup {
+      display: block;
+      float: left;
+      clear: none;
+      position: relative;
+
+    }
+
+    span.avatar {
+      width: 15%;
+    }
+    hgroup {
+      width: 82%;
+      padding-left: 3%;
+    }
+
+    span.avatar {
+      img {
+        width: 100%;
+      }
+    }
+    hgroup {
+
+      h1,
+      h2 {
+        padding: 0;
+        margin: 0;
+        font-weight: normal;
+        font-size: 1.2em;
+      }
+      h2 {
+        font-size: 0.8em;
+        padding-top: 0.125em;
+      }
+    }
+  }
+}
+
+ul.fb_feed {
+  img {
+    max-width: 100%;
+  }
+  li,
+  span.frame,
+  header,
+  .message,
+  .link,
+  .caption,
+  .title,
+  footer {
+    display: block;
+    float: left;
+    clear: left;
+    width: 100%;
+  }
+
+  span.frame {
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  .message {
+    padding: 0.5em 0;
+  }
+  .title {
+    padding: 0.25em 0;
+  }
+
+  a.link {
+    font-size: 1.2em;
+    padding: 0.25em;
+    background-color: #F4F4F4;
+
+    .no-touchevents &:hover span.link {
+      text-decoration: underline;
+    }
+    .caption {
+      padding: 0.75em, 0;
+      font-size: 0.6em;
+      text-decoration: none;
+    }
+  }
+
+  footer {
+    padding: 0.5em 0 0;
+    // background: #FCF;
+    a {
+      font-size: 0.8em;
+    }
+  }
+}

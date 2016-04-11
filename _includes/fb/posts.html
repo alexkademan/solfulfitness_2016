@@ -1,0 +1,30 @@
+<li class="loading">
+  <i class="fa fa-refresh fa-spin fa-2x"></i>
+</li>
+<script type="text/template" id="fb_template">
+  <li class="fbPost <%- 'id-' + id %>">
+    {% include fb/post_header.html %}
+    <% if(type === 'photo'){ %>
+      {% include fb/post_photo.html %}
+
+    <% } else if(type === 'video'){ %>
+      {% include fb/post_video.html %}
+
+    <% } else if(type === 'link'){ %>
+      {% include fb/post_link.html %}
+
+    <% } else if(type === 'status'){ %>
+      <%- message ? message : '' %>
+
+    <% } else if(type === 'offer'){ %>
+      {% include fb/post_offer.html %}
+
+    <% } else { %>
+      <%- id + ' - ' + type %>
+    <% } %>
+    {% include fb/post_footer.html %}
+  </li>
+</script>
+<script type="text/template" id="fb_template_avatar">
+  <img src="<%- imgURL %>">
+</script>

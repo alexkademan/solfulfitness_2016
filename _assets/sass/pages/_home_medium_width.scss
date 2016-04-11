@@ -1,0 +1,10 @@
+
+div.home {
+  .main_col {
+    min-height: pem(750);
+    @include span-columns(7 of 12);
+  }
+  .fb_feed {
+    @include span-columns(5 of 12);
+  }
+}

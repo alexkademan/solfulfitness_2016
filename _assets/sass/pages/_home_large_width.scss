@@ -1,0 +1,8 @@
+div.home {
+  .main_col {
+    @include span-columns(8 of 12);
+  }
+  .fb_feed {
+    @include span-columns(4 of 12);
+  }
+}

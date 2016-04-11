@@ -1,0 +1,33 @@
+body,
+html {
+  min-width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #CCC;
+}
+
+.outer {
+  @include outer-container;
+}
+.page,
+.row,
+footer.site-footer {
+  display: block;
+  float: left;
+  clear: both;
+  width: 100%;
+}
+
+body > .page {
+  background: #FFF;
+}
+
+.hid {
+  @include hidden;
+}
+
+footer.site-footer {
+  .outer {
+    padding: $gutter $main_gutter ($gutter * 2);
+  }
+}

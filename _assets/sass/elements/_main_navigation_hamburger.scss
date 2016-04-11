@@ -1,0 +1,63 @@
+span.toggle_menu {
+  display: block;
+  float: left;
+  clear: none;
+  width: $navbtn_height;
+  height: $navbtn_height;
+  background-color: #FFF;
+  color: #FFF;
+
+  .line {
+  	position: relative;
+  	background: #000;
+  	height: 3px;
+  	width: 32px;
+  	border-radius: 3px;
+  	margin: 6px 14px;
+    @include transition(all 0.4s ease-in-out);
+  }
+  .line-1 {
+    margin-top: 20px;
+  }
+  a.toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $navbtn_height;
+    height: $navbtn_height;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+html.main_nav_on span.toggle_menu { // when the menu is showing:
+
+  .line-1,
+  .line-2,
+  .line-3 {
+  	position: relative;
+    left: 0;
+    @include transition(all 0.4s ease-in-out);
+
+  }
+  .line-2 {
+  	background: transparent;
+  }
+
+  .line-1, .line-3 {
+    width: 29px;
+
+  }
+
+  .line-1 {
+  	margin: 21px 0 0 16.5px;
+    @include transform-origin( 10% 100% );
+    @include transform(rotateZ(45deg));
+  }
+
+  .line-3 {
+    margin: -1.5px 0 0 19px;
+    @include transform-origin( 10% 100% );
+    @include transform(rotateZ(-45deg));
+  }
+}

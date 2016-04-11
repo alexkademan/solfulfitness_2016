@@ -1,0 +1,5 @@
+@mixin animate-linear-rotation($time: 2s) {
+  -webkit-animation: rotation $time linear infinite;
+  -moz-animation:rotation $time linear infinite;
+  animation:rotation $time linear infinite;
+}
